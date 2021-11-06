@@ -7,26 +7,46 @@
 
 import UIKit
 
+public var publicList = [OrderListItem]()
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var bannerView: UIView!
     @IBOutlet weak var addView: UIView!
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var addImageView: UIImageView!
+    @IBOutlet weak var logoView: UIImageView!
+    @IBOutlet weak var firmNameLabel: UILabel!
     
-    var list = [Order]()
+    var list = [OrderListItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addView.makeCircle()
+        logoView.makeCircle()
+        list = publicList
+        
+        let tapG = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+        addView.addGestureRecognizer(tapG)
+        addView.isUserInteractionEnabled = true
         
         myTableView.register(UINib(nibName: "OrderCell", bundle: nil), forCellReuseIdentifier: "OrderCell")
         myTableView.delegate = self
         myTableView.dataSource = self
-        list.append(Order())
-        var order = Order()
-        order.value = "Nurzhab"
-        list.append(order)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        list = publicList
+        myTableView.reloadData()
+    }
+    
+    @objc func imageTapped(sender: UITapGestureRecognizer){
+        if sender.state == .ended{
+            let sboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sboard.instantiateViewController(identifier: "MenuViewController")
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
 
@@ -34,14 +54,16 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        print("-----\(list.count)")
         return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderCell
         let order = list[indexPath.row]
-        cell.orderNumberLabel.text = "\(order.number)"
-        cell.orderValueLabel.text = order.value
+        cell.orderNumberLabel.text = String(order.number)
+        cell.orderValueLabel.text = order.name
         cell.sumLabel.text = "\(order.sum)"
         
         return cell
@@ -49,7 +71,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let order = list[indexPath.row]
-        let text = order.value
+        let text = order.name
         let label =  UILabel()
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 17)
