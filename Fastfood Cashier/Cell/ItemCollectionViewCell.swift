@@ -24,6 +24,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         myImageView.makeCircle()
         myView.layer.cornerRadius = 12
         minusButton.makeCircle()
+        myView.makeMiniShadow()
     }
 
     @IBAction func minusTapped(_ sender: Any) {

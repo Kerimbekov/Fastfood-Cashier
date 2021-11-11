@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import RealmSwift
 
-public struct OrderListItem {
-    var number = 1
-    var name = ""
-    var sum = 12.0
-    var served = false
-    var orderList = [Order]()
+class OrderListItem:Object {
+    @objc dynamic var number:Int = 0
+    @objc dynamic var name:String = ""
+    @objc dynamic var sum:Double = 0.0
+    @objc dynamic var served:Bool = false
+    let orderList = List<Order>()
 }

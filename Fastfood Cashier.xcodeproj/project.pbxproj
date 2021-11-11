@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,7 +25,17 @@
 		202506642735064E00C9A8B6 /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 202506622735064E00C9A8B6 /* ItemCollectionViewCell.xib */; };
 		2025066727350CF800C9A8B6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025066627350CF800C9A8B6 /* Item.swift */; };
 		2025066A2735105200C9A8B6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202506692735105200C9A8B6 /* Category.swift */; };
+		20299DB9273D0ECB0038B672 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20299DB8273D0ECB0038B672 /* ChartsViewController.swift */; };
 		209710F2273676CD000722CF /* OrderListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209710F1273676CD000722CF /* OrderListItem.swift */; };
+		20D87A9D2737C395000C29AF /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D87A9C2737C395000C29AF /* AccountViewController.swift */; };
+		20D87AA02737EFBD000C29AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D87A9F2737EFBD000C29AF /* Constants.swift */; };
+		20D87AA327392CAB000C29AF /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D87AA227392CAB000C29AF /* AddCategoryViewController.swift */; };
+		20D87AA6273951A8000C29AF /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D87AA5273951A8000C29AF /* AddItemViewController.swift */; };
+		20D87AAA27397D27000C29AF /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D87AA827397D27000C29AF /* CategoryTableViewCell.swift */; };
+		20D87AAB27397D28000C29AF /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D87AA927397D27000C29AF /* CategoryTableViewCell.xib */; };
+		20D87AAF27397F72000C29AF /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D87AAD27397F72000C29AF /* ItemTableViewCell.swift */; };
+		20D87AB027397F72000C29AF /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D87AAE27397F72000C29AF /* ItemTableViewCell.xib */; };
+		E8995137D6B89E47E1DB52C4 /* Pods_Fastfood_Cashier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7954DD5F427198F5B21C10 /* Pods_Fastfood_Cashier.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +59,19 @@
 		202506622735064E00C9A8B6 /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		2025066627350CF800C9A8B6 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		202506692735105200C9A8B6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		20299DB8273D0ECB0038B672 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		209710F1273676CD000722CF /* OrderListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListItem.swift; sourceTree = "<group>"; };
+		20D87A9C2737C395000C29AF /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		20D87A9F2737EFBD000C29AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		20D87AA227392CAB000C29AF /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
+		20D87AA5273951A8000C29AF /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		20D87AA827397D27000C29AF /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		20D87AA927397D27000C29AF /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		20D87AAD27397F72000C29AF /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		20D87AAE27397F72000C29AF /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		24080486932FEA35349608B3 /* Pods-Fastfood Cashier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fastfood Cashier.debug.xcconfig"; path = "Target Support Files/Pods-Fastfood Cashier/Pods-Fastfood Cashier.debug.xcconfig"; sourceTree = "<group>"; };
+		48BDA113ABDD83351F795207 /* Pods-Fastfood Cashier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fastfood Cashier.release.xcconfig"; path = "Target Support Files/Pods-Fastfood Cashier/Pods-Fastfood Cashier.release.xcconfig"; sourceTree = "<group>"; };
+		5D7954DD5F427198F5B21C10 /* Pods_Fastfood_Cashier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fastfood_Cashier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,17 +79,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8995137D6B89E47E1DB52C4 /* Pods_Fastfood_Cashier.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E51B2BB0D144B1B8BB76668 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D7954DD5F427198F5B21C10 /* Pods_Fastfood_Cashier.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		202506222733CF7100C9A8B6 = {
 			isa = PBXGroup;
 			children = (
 				2025062D2733CF7100C9A8B6 /* Fastfood Cashier */,
 				2025062C2733CF7100C9A8B6 /* Products */,
+				89F67CD0B5D61775BA66F40B /* Pods */,
+				1E51B2BB0D144B1B8BB76668 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +142,10 @@
 			children = (
 				202506322733CF7100C9A8B6 /* ViewController.swift */,
 				202506592734F63100C9A8B6 /* MenuViewController.swift */,
+				20D87A9C2737C395000C29AF /* AccountViewController.swift */,
+				20D87AA227392CAB000C29AF /* AddCategoryViewController.swift */,
+				20D87AA5273951A8000C29AF /* AddItemViewController.swift */,
+				20299DB8273D0ECB0038B672 /* ChartsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -129,6 +166,7 @@
 			children = (
 				2025064A2733FAA800C9A8B6 /* Extensions.swift */,
 				2025064D2733FB0C00C9A8B6 /* Utilities.swift */,
+				20D87A9F2737EFBD000C29AF /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -142,8 +180,21 @@
 				2025065D273503FE00C9A8B6 /* CategoryCell.xib */,
 				202506612735064E00C9A8B6 /* ItemCollectionViewCell.swift */,
 				202506622735064E00C9A8B6 /* ItemCollectionViewCell.xib */,
+				20D87AA827397D27000C29AF /* CategoryTableViewCell.swift */,
+				20D87AA927397D27000C29AF /* CategoryTableViewCell.xib */,
+				20D87AAD27397F72000C29AF /* ItemTableViewCell.swift */,
+				20D87AAE27397F72000C29AF /* ItemTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		89F67CD0B5D61775BA66F40B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				24080486932FEA35349608B3 /* Pods-Fastfood Cashier.debug.xcconfig */,
+				48BDA113ABDD83351F795207 /* Pods-Fastfood Cashier.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +204,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2025063F2733CF7100C9A8B6 /* Build configuration list for PBXNativeTarget "Fastfood Cashier" */;
 			buildPhases = (
+				FA2E54943A7463A208BA9BDC /* [CP] Check Pods Manifest.lock */,
 				202506272733CF7100C9A8B6 /* Sources */,
 				202506282733CF7100C9A8B6 /* Frameworks */,
 				202506292733CF7100C9A8B6 /* Resources */,
+				F1DB2A28C50FC4CD7FEEAA24 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,7 +256,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D87AB027397F72000C29AF /* ItemTableViewCell.xib in Resources */,
 				2025065F273503FE00C9A8B6 /* CategoryCell.xib in Resources */,
+				20D87AAB27397D28000C29AF /* CategoryTableViewCell.xib in Resources */,
 				2025063B2733CF7100C9A8B6 /* LaunchScreen.storyboard in Resources */,
 				202506382733CF7100C9A8B6 /* Assets.xcassets in Resources */,
 				202506642735064E00C9A8B6 /* ItemCollectionViewCell.xib in Resources */,
@@ -214,15 +269,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F1DB2A28C50FC4CD7FEEAA24 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fastfood Cashier/Pods-Fastfood Cashier-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fastfood Cashier/Pods-Fastfood Cashier-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fastfood Cashier/Pods-Fastfood Cashier-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA2E54943A7463A208BA9BDC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fastfood Cashier-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		202506272733CF7100C9A8B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D87AA6273951A8000C29AF /* AddItemViewController.swift in Sources */,
+				20299DB9273D0ECB0038B672 /* ChartsViewController.swift in Sources */,
+				20D87AA327392CAB000C29AF /* AddCategoryViewController.swift in Sources */,
 				202506332733CF7100C9A8B6 /* ViewController.swift in Sources */,
 				2025062F2733CF7100C9A8B6 /* AppDelegate.swift in Sources */,
+				20D87AAF27397F72000C29AF /* ItemTableViewCell.swift in Sources */,
+				20D87A9D2737C395000C29AF /* AccountViewController.swift in Sources */,
 				202506312733CF7100C9A8B6 /* SceneDelegate.swift in Sources */,
 				2025064E2733FB0C00C9A8B6 /* Utilities.swift in Sources */,
+				20D87AA02737EFBD000C29AF /* Constants.swift in Sources */,
 				202506532733FD4500C9A8B6 /* OrderCell.swift in Sources */,
 				202506632735064E00C9A8B6 /* ItemCollectionViewCell.swift in Sources */,
 				2025066727350CF800C9A8B6 /* Item.swift in Sources */,
@@ -232,6 +335,7 @@
 				209710F2273676CD000722CF /* OrderListItem.swift in Sources */,
 				2025065A2734F63100C9A8B6 /* MenuViewController.swift in Sources */,
 				2025066A2735105200C9A8B6 /* Category.swift in Sources */,
+				20D87AAA27397D27000C29AF /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +479,7 @@
 		};
 		202506402733CF7100C9A8B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24080486932FEA35349608B3 /* Pods-Fastfood Cashier.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -394,6 +499,7 @@
 		};
 		202506412733CF7100C9A8B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48BDA113ABDD83351F795207 /* Pods-Fastfood Cashier.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

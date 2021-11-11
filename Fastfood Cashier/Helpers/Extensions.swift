@@ -25,6 +25,29 @@ extension UIView {
         self.layer.borderWidth = 0.1
         self.layer.borderColor = UIColor.black.cgColor
     }
+    
+    func makeGreenBorder(){
+        self.layer.borderWidth = 3
+        self.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    func makeShadow(){
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 3
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
+    }
+    
+    func makeMiniShadow(){
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 1.5
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
+    }
 }
 
 extension UIViewController {
@@ -45,6 +68,31 @@ extension UIViewController {
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
+    
+
+    
+    func saveImageInDirectory(image: UIImage, name:String) {
+        guard let data = image.jpegData(compressionQuality: 0.05) else {return}
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileName = "\(name)"
+        let fileURL = documentsDirectory.appendingPathComponent(fileName)
+        do {
+            try data.write(to: fileURL)
+            print("file saved----\(fileName)")
+        } catch {
+            print("error saving file:", error)
+        }
+    }
+    
+    func downloadImageFromDirectory(name:String) -> UIImage{
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileName = "\(name)"
+        let fileURL = documentsDirectory.appendingPathComponent(fileName)
+        
+        var image = UIImage(named: "pic")
+        fileURL.loadImage(&image)
+        return image!
+    }
 }
 
 extension URL {
@@ -52,7 +100,7 @@ extension URL {
         if let data = try? Data(contentsOf: self), let loaded = UIImage(data: data) {
             image = loaded
         } else {
-            image = UIImage(named: "avatar")
+            image = UIImage(named: "pic")
         }
     }
 }

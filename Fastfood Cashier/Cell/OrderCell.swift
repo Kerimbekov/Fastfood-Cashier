@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class OrderCell: UITableViewCell {
 
@@ -15,10 +16,15 @@ class OrderCell: UITableViewCell {
     @IBOutlet weak var orderValueLabel: UILabel!
     @IBOutlet weak var sumLabel: UILabel!
     @IBOutlet weak var servedButton: UIButton!
+    
+    var delegate:MainTableReloadDelegate?
+    var orderListItem:OrderListItem?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         orderNumberView.makeCircle()
         myView.layer.cornerRadius = 8
+        myView.makeMiniShadow()
         servedButton.layer.cornerRadius = 5
     }
 
@@ -29,5 +35,18 @@ class OrderCell: UITableViewCell {
     }
     
     @IBAction func servedTapped(_ sender: Any) {
+        do {
+            let realm = try Realm()
+            try realm.write{
+                orderListItem?.served = true
+            }
+            delegate?.reloadMyTabe()
+        } catch  {
+            print("error check served realm")
+        }
     }
+}
+
+protocol MainTableReloadDelegate {
+    func reloadMyTabe()
 }

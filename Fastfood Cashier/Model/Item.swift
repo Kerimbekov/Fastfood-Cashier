@@ -7,9 +7,12 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-struct Item {
+class Item: Object{
+    @objc dynamic var imageName:String = "pic"
     var image = UIImage(named: "pic")
-    var name = "waurma zapechennyi govyadina ostryi"
-    var price = 160.0
+    @objc dynamic var name:String = ""
+    @objc dynamic var price:Double = 0.0
+    @objc dynamic var category:Category? = Category()
 }

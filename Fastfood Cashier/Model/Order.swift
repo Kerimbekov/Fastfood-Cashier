@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Order {
-    var qty = 2
-    var item = Item()
-    var sum = 12345.0
+class Order:Object {
+    @objc dynamic var qty:Int = 0
+    @objc dynamic var item:Item? = Item()
+    @objc dynamic var sum:Double = 0.0
 }

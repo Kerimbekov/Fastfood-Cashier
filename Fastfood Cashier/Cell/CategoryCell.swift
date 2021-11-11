@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CategoryCell: UITableViewCell {
 
@@ -13,7 +14,7 @@ class CategoryCell: UITableViewCell {
     @IBOutlet weak var myCollectionView: UICollectionView!
     
     var category = Category()
-    var list = [Item]()
+    var list = List<Item>()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -57,12 +58,23 @@ extension CategoryCell: UICollectionViewDelegate,UICollectionViewDataSource,UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCollectionViewCell", for: indexPath) as! ItemCollectionViewCell
         let item = list[indexPath.item]
+        cell.item = item
         cell.delegate = self
-        cell.myImageView.image = item.image
+        cell.myImageView.image = downloadImageFromDirectory(name: "\(category.name)\(item.name)")
         cell.nameLabel.text = item.name
         cell.priceLabel.text = ""
-        cell.myView.backgroundColor = category.color
+        cell.myView.backgroundColor = UIColor(named: category.colorName) 
         return cell
+    }
+    
+    func downloadImageFromDirectory(name:String) -> UIImage{
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileName = "\(name)"
+        let fileURL = documentsDirectory.appendingPathComponent(fileName)
+        
+        var image = UIImage(named: "pic")
+        fileURL.loadImage(&image)
+        return image!
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

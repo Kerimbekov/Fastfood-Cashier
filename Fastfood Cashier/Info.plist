@@ -2,10 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-9352557169154677~8436901448</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-    <key>UIUserInterfaceStyle</key>
-    <string>Light</string>
+	<key>CFBundleDisplayName</key>
+	<string>Fastfood Cashier</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -61,5 +63,11 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow photo library usage</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow camera usage</string>
 </dict>
 </plist>

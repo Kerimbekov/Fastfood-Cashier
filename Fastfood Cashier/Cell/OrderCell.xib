@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mL-F0-5hr">
-                        <rect key="frame" x="5" y="2" width="449" height="46"/>
+                        <rect key="frame" x="5" y="4" width="449" height="42"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZY6-MC-mYC">
-                                <rect key="frame" x="399" y="10.5" width="45" height="25"/>
+                                <rect key="frame" x="399" y="8.5" width="45" height="25"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="Ygq-L9-ZIk"/>
@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12345" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlQ-ca-FWX">
-                                <rect key="frame" x="324" y="12.5" width="70" height="21.5"/>
+                                <rect key="frame" x="324" y="10.5" width="70" height="21.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="IKl-EW-Czf"/>
                                 </constraints>
@@ -45,17 +45,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yks-G6-9oV">
-                                <rect key="frame" x="50" y="13" width="264" height="20.5"/>
+                                <rect key="frame" x="50" y="11" width="264" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="puo-uA-EO1">
-                                <rect key="frame" x="5" y="3" width="40" height="40"/>
+                                <rect key="frame" x="5" y="1" width="40" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4S-it-jUm">
-                                        <rect key="frame" x="3.5" y="8" width="33" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <rect key="frame" x="1.5" y="6.5" width="37.5" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -84,10 +84,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="4mL-F0-5hr" secondAttribute="bottom" constant="2" id="8QF-mn-RQE"/>
+                    <constraint firstAttribute="bottom" secondItem="4mL-F0-5hr" secondAttribute="bottom" constant="4" id="8QF-mn-RQE"/>
                     <constraint firstAttribute="trailing" secondItem="4mL-F0-5hr" secondAttribute="trailing" constant="5" id="QcD-gR-u8I"/>
                     <constraint firstItem="4mL-F0-5hr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="co3-ra-N03"/>
-                    <constraint firstItem="4mL-F0-5hr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="xSf-sb-WyJ"/>
+                    <constraint firstItem="4mL-F0-5hr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="xSf-sb-WyJ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
