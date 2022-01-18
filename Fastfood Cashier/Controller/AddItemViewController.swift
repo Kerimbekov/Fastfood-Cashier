@@ -34,7 +34,7 @@ class AddItemViewController: UIViewController {
         
         if let item = item{
             logoImageView.image = downloadImageFromDirectory(name: "\(category.name)\(item.name)")
-            loadedImage = logoImageView.image ?? UIImage(named: "pic")!
+            loadedImage = logoImageView.image ?? UIImage(named: "logo")!
             nameTextField.text = item.name
             priceTextField.text = String(item.price)
         }

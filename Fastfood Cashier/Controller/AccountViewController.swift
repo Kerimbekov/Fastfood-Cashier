@@ -36,12 +36,11 @@ class AccountViewController: UIViewController,reloadTablesDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var branchTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var logOutBarButton: UIBarButtonItem!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var categoryNameLabel: UILabel!
     
     let defaults = UserDefaults.standard
-    var categoryList:Results<Category>!
+    var categoryList:Results<Category>?
     var itemList:List<Item>?
     var chosenCategory:Category?
     var editCategory:Category?
@@ -53,8 +52,8 @@ class AccountViewController: UIViewController,reloadTablesDelegate {
         do {
             let realm = try Realm()
             categoryList = realm.objects(Category.self)
-            if categoryList.count > 0{
-                chosenCategory = categoryList[0]
+            if categoryList?.count ?? 0 > 0{
+                chosenCategory = categoryList![0]
                 itemList = chosenCategory!.itemlist
                 categoryNameLabel.text = chosenCategory?.name
                 categoryNameLabel.backgroundColor = UIColor(named: chosenCategory!.colorName) ?? .systemGray5
@@ -107,10 +106,14 @@ class AccountViewController: UIViewController,reloadTablesDelegate {
         addItemButton.layer.cornerRadius = 8
         headerView.layer.cornerRadius = 8
         
-        categoryNameLabel.layer.borderWidth = 0.5
+        //categoryNameLabel.layer.borderWidth = 0.5
         
         mainView.makeShadow()
         headerView.makeShadow()
+        addItemButton.makeMiniShadow()
+        addCategoryButton.makeMiniShadow()
+        itemView.makeShadow()
+        categoryView.makeShadow()
     }
     
     func configureFields() {
@@ -174,8 +177,8 @@ class AccountViewController: UIViewController,reloadTablesDelegate {
         defaults.setValue(passwordTextField.text, forKey: K.Defaults.password)
         defaults.setValue(branchTextField.text, forKey: K.Defaults.branch)
         
-        companyNameLabel.text = nameTextField.text
-        branchLabel.text = branchTextField.text
+        companyNameLabel.text = nameTextField.text == "" ? "Company Name":nameTextField.text
+        branchLabel.text = branchTextField.text == "" ? "Branch":branchTextField.text
         
     }
 }
@@ -227,7 +230,7 @@ extension AccountViewController: UITextFieldDelegate{
 extension AccountViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag == 1{
-            return categoryList.count
+            return categoryList?.count ?? 0
         }else{
             return itemList?.count ?? 0
         }
@@ -237,8 +240,8 @@ extension AccountViewController:UITableViewDelegate,UITableViewDataSource{
         if tableView.tag == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
             
-            cell.colorImageView.backgroundColor = UIColor(named: categoryList[indexPath.row].colorName) 
-            cell.categoryNameLabel.text = categoryList[indexPath.row].name
+            cell.colorImageView.backgroundColor = UIColor(named: categoryList![indexPath.row].colorName) 
+            cell.categoryNameLabel.text = categoryList![indexPath.row].name
             
             return cell
         }else{
@@ -284,7 +287,7 @@ extension AccountViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.tag == 1{
-            chosenCategory = categoryList[indexPath.row]
+            chosenCategory = categoryList![indexPath.row]
             itemList = chosenCategory?.itemlist
             categoryNameLabel.text = chosenCategory?.name
             categoryNameLabel.backgroundColor = UIColor(named:(chosenCategory?.colorName)!) ?? .systemGray5
@@ -295,7 +298,7 @@ extension AccountViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             if tableView.tag == 1{
-                let category = categoryList[indexPath.row]
+                let category = categoryList![indexPath.row]
                 do {
                     let realm = try Realm()
                     try realm.write{
@@ -338,7 +341,7 @@ extension AccountViewController:UITableViewDelegate,UITableViewDataSource{
         let editAction = UIAction(title: "Edit") { [weak self] _ in
             guard let self = self else { return }
             if tag == 1{
-                self.editCategory = self.categoryList[indexPath.row]
+                self.editCategory = self.categoryList![indexPath.row]
                 self.performSegue(withIdentifier: "fromAccountToAddCategory", sender: self)
             }else{
                 self.editItem = self.itemList![indexPath.row]

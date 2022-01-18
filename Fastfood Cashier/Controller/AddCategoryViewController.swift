@@ -155,12 +155,12 @@ class AddCategoryViewController: UIViewController {
                         realm.add(newCategory)
                     }
                 }
-               
+                
                 self.dismiss(animated: true) {
                     self.delegate?.reloadAllTables()
                 }
-            } catch {
-                print("error adding category to realm")
+            } catch{
+                print("error adding category to realm\(error)")
             }
         }else{
             popError(alertTitle: "Name", alertMessage: "Empty Category Name", actionTitle: "Ok")

@@ -15,7 +15,7 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var saveView: UIView!
     @IBOutlet weak var saveImageView: UIImageView!
     
-    var categoryList:Results<Category>!
+    var categoryList:Results<Category>?
     var orderListItem = OrderListItem()
     
     override func viewDidLoad(){
@@ -28,7 +28,6 @@ class MenuViewController: UIViewController {
         }
         
         super.viewDidLoad()
-        saveView.makeCircle()
         let tapG = UITapGestureRecognizer(target: self, action: #selector(saveTapped))
         saveView.addGestureRecognizer(tapG)
         saveView.isUserInteractionEnabled = true
@@ -59,6 +58,7 @@ class MenuViewController: UIViewController {
                 orderListItem.name = name
                 orderListItem.served = false
                 orderListItem.sum = sum
+                orderListItem.date = Date().localDate()
                 do {
                     let realm = try Realm()
                     try realm.write{
@@ -77,20 +77,20 @@ class MenuViewController: UIViewController {
 
 extension MenuViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryList.count
+        return categoryList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
         
-        let category = categoryList[indexPath.row]
+        let category = categoryList![indexPath.row]
         cell.category = category
         cell.list = category.itemlist
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height = (55 * categoryList[indexPath.row].itemlist.count)
+        let height = (55 * categoryList![indexPath.row].itemlist.count)
         return CGFloat(height)
     }
     

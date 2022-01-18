@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(0, forKey: K.Defaults.enumarator)
         return true
     }
+    
 
     // MARK: UISceneSession Lifecycle
 

@@ -12,7 +12,6 @@ import GoogleMobileAds
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var MybannerView: UIView!
     @IBOutlet weak var addView: UIView!
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var addImageView: UIImageView!
@@ -21,7 +20,7 @@ class ViewController: UIViewController {
     
     var bannerView: GADBannerView!
     
-    var list:Results<OrderListItem>!
+    var list:Results<OrderListItem>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +51,9 @@ class ViewController: UIViewController {
         
         logoView.image = downloadImageFromDirectory(name: "logo")
         firmNameLabel.text = UserDefaults.standard.string(forKey: K.Defaults.companyName)
-        
     }
+    
+    
     
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
@@ -95,12 +95,12 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return list?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderCell
-        let order = list[indexPath.row]
+        let order = list![indexPath.row]
         cell.delegate = self
         cell.orderListItem = order
         cell.orderNumberLabel.text = String(order.number)
@@ -111,7 +111,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let order = list[indexPath.row]
+        let order = list![indexPath.row]
         let text = order.name
         let label =  UILabel()
         label.numberOfLines = 0
@@ -138,7 +138,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            let item = list[indexPath.row]
+            let item = list![indexPath.row]
             do {
                 let realm = try Realm()
                 try realm.write{

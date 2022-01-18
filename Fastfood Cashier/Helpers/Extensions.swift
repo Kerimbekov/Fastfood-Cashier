@@ -13,6 +13,10 @@ extension UIView {
         self.layer.cornerRadius = self.frame.size.height / 6
     }
     
+    func makeRoundedByEight(){
+        self.layer.cornerRadius = 8
+    }
+    
     func makeCircle() {
         self.layer.borderWidth = 1.0
         self.layer.masksToBounds = false
@@ -23,6 +27,11 @@ extension UIView {
     
     func makeBorder(){
         self.layer.borderWidth = 0.1
+        self.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    func makeBigBorder() {
+        self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.black.cgColor
     }
     
@@ -100,7 +109,26 @@ extension URL {
         if let data = try? Data(contentsOf: self), let loaded = UIImage(data: data) {
             image = loaded
         } else {
-            image = UIImage(named: "pic")
+            image = UIImage(named: "logo")
         }
     }
+}
+
+extension Date {
+    func beginningOfDay() -> Date {
+        let calendar = NSCalendar.current
+        var components = calendar.dateComponents([.year, .month, .day], from: self as Date)
+        components.timeZone = TimeZone(abbreviation: "GMT")
+        return calendar.date(from: components)!
+    }
+    
+    
+    func localDate() -> Date {
+        let nowUTC = Date()
+        let timeZoneOffset = Double(TimeZone.current.secondsFromGMT(for: nowUTC))
+        guard let localDate = Calendar.current.date(byAdding: .second, value: Int(timeZoneOffset), to: nowUTC) else {return Date()}
+        
+        return localDate
+    }
+    
 }
